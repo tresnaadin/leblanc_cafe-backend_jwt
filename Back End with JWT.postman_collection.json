@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "14fcfb26-c1e7-4b5b-b333-0ffb52c0eaae",
+		"name": "Back End with JWT",
+		"description": "Back End with JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Sojiro",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "visitor_cafe2",
+							"type": "text"
+						},
+						{
+							"key": "picture",
+							"type": "file",
+							"src": "/home/tresnaadin/Pictures/cafe_visitor2.png"
+						},
+						{
+							"key": "password",
+							"value": "user",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "user",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user"
+					]
+				},
+				"description": "Register new User"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user"
+					]
+				},
+				"description": "Get User"
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin_cafe",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth"
+					]
+				},
+				"description": "Get Token Authentication"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Product",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluX2NhZmUiLCJpYXQiOjE2MDAxODYyMTQsImV4cCI6MTYwMDE5MzIxNH0.PZAKCAkat48ym0OO0Co3i2KGaU_NHcPZc1KW3X7_XQQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product"
+					]
+				},
+				"description": "Get Product use Authentication\n\nUse Admin token"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluX2NhZmUiLCJpYXQiOjE2MDAxODQ4MzIsImV4cCI6MTYwMDE5MTgzMn0.Bichs6y_IgGOb2NN6a5QeLyNKUNbsSAFRHEmOj6uT2c"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Kopi Gayo",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "12000",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/tresnaadin/Pictures/LeBlanc Cafe/Menu/kopi-gayo.jpg"
+						},
+						{
+							"key": "category",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product"
+					]
+				},
+				"description": "Add Product with User Token"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluX2NhZmUiLCJpYXQiOjE2MDAxODcyNTgsImV4cCI6MTYwMDE5NDI1OH0.nEsoZYS2b4-z-Diz_QrY6LjJ1KorChIJsbiCVnpjr3Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Teh Rosella",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/tresnaadin/Pictures/LeBlanc Cafe/Menu/teh-rosella.jpeg"
+						},
+						{
+							"key": "price",
+							"value": "15000",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "30",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product"
+					]
+				},
+				"description": "Update Product with User Token"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluX2NhZmUiLCJpYXQiOjE2MDAxODgwNjQsImV4cCI6MTYwMDE4ODI2NH0.396KMBJxW3y0rSpXXcwmdD3xPyjW73zrUQQiTNgpDzM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/product/delete/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"product",
+						"delete",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "30"
+						}
+					]
+				},
+				"description": "Delete Product with User Token"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All History",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZpc2l0b3JfY2FmZSIsImlhdCI6MTYwMDE4MTY1NSwiZXhwIjoxNjAwMTgxODU1fQ.sKSlY-y9KBwwWbtdGZDJJKUtWvkey7x0xePco6dDqw0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/history",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"history"
+					]
+				},
+				"description": "Get All History using User Token"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
